@@ -23,13 +23,13 @@ def init():
 def startFan():
     global fanFlag
     fanFlag = GPIO.HIGH
-    print "Starting Fan"
+    print("Starting Fan")
     GPIO.output(fanPin, fanFlag)
 
 def stopFan():
     global fanFlag
     fanFlag = GPIO.LOW
-    print "Stopping Fan"
+    print("Stopping Fan")
     GPIO.output(fanPin, fanFlag)
 
 #waits for user to hold button up to 1 second before issuing poweroff command
@@ -38,8 +38,8 @@ def checkTemperature():
         with open("/sys/class/thermal/thermal_zone0/temp") as f:
             temp = float(f.read().strip()) / 1000
 
-        print "Temperature = %.2f / Fan Status = %s / start: %d / stop: %d" % \
-                (temp, fanFlag, startThreshold, stopThreshold)
+        print("Temperature = %.2f / Fan Status = %s / start: %d / stop: %d" % \
+                (temp, fanFlag, startThreshold, stopThreshold))
         if temp >= startThreshold and fanFlag != GPIO.HIGH:
             startFan()
         elif temp < stopThreshold and fanFlag != GPIO.LOW:
@@ -50,7 +50,7 @@ def checkTemperature():
 
 
 if __name__ == "__main__":
-    print "Starting ControlFan"
+    print("Starting ControlFan")
     init()
     time.sleep(5)
     tempProcess = Process(target = checkTemperature)
