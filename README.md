@@ -8,6 +8,9 @@
     * [Example for RecalBox](#example-for-recalbox)
     * [Example for batocera](#example-for-batocera)
 
+> For megapi case, use instructions described in `Pi Case` chapter.
+> The install script include deployment of custom fan control.
+
 -------------------- 
 
 # GPiCase2 (GPi Case 2 only)
